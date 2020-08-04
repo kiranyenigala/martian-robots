@@ -21,4 +21,10 @@ public class Scent {
         return Objects.equals(location, scent.location) &&
                 orientation == scent.orientation;
     }
+
+
+    @Override
+    public String toString() {
+        return location.getX() + " " + location.getY() + " " + orientation.toString();
+    }
 }
