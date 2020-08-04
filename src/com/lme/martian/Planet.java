@@ -25,6 +25,10 @@ public class Planet {
         return upperRightLocation;
     }
 
+    public List<Robot> getRobots() {
+        return robots;
+    }
+
     public boolean hasScent(Scent tmpScent) {
         return this.scents.stream().anyMatch(scent -> scent.equals(tmpScent));
     }
