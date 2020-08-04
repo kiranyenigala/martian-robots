@@ -7,14 +7,18 @@ public class Robot {
     private Orientation orientation;
     private Scent scent;
 
-    public Robot(Planet planet, Location location, Orientation orientation){
+    public Robot(Planet planet,
+                 Location location,
+                 Orientation orientation,
+                 String instructions){
         this.planet = planet;
         this.orientation = orientation;
         this.location = location;
         planet.addRobot(this);
+        this.moveRobot(instructions);
     }
 
-    public void instruction(String instructions) {
+    private void moveRobot(String instructions) {
         for (char c : instructions.toCharArray()) {
             if (isLost()) {
                 break;
@@ -68,7 +72,7 @@ public class Robot {
     }
 
     private void moveForward() {
-        Scent tempScent = new Scent(location, orientation);
+        Scent tempScent = new Scent(new Location(location.getX(), location.getY()), orientation);
         if (planet.hasScent(tempScent)) {
             return;
         } else {
@@ -100,11 +104,11 @@ public class Robot {
                 || location.getY() < 0;
     }
 
-    public String printRobotPosition(){
+    public void printRobotPosition(){
         if(isLost()){
-            return scent.toString() + " LOST";
+            System.out.println(scent.toString() + " LOST");
         } else{
-            return location.toString() + " " + orientation.toString();
+            System.out.println(location.toString() + " " + orientation.toString());
         }
     }
 }
