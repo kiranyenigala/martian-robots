@@ -19,6 +19,23 @@ public class Location {
         return y;
     }
 
+    public int incrementX() {
+        return x++;
+    }
+
+    public int decrementX() {
+        return x--;
+    }
+
+    public int incrementY() {
+        return y++;
+    }
+
+    public int decrementY() {
+        return y--;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -26,5 +43,10 @@ public class Location {
         Location location = (Location) o;
         return x == location.x &&
                 y == location.y;
+    }
+
+    @Override
+    public String toString() {
+        return x + " " + y;
     }
 }
