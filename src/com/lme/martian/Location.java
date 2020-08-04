@@ -19,22 +19,21 @@ public class Location {
         return y;
     }
 
-    public int incrementX() {
-        return x++;
+    public void incrementX() {
+        x = x + 1;
     }
 
-    public int decrementX() {
-        return x--;
+    public void decrementX() {
+        x =  x - 1;
     }
 
-    public int incrementY() {
-        return y++;
+    public void incrementY() {
+        y = y + 1;
     }
 
-    public int decrementY() {
-        return y--;
+    public void decrementY() {
+        y = y - 1;
     }
-
 
     @Override
     public boolean equals(Object o) {
