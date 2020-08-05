@@ -10,6 +10,13 @@ public class Planet {
     private List<Scent> scents = new ArrayList<>();
 
     public Planet(Location upperRightLocation) {
+        if (upperRightLocation == null) {
+            throw new IllegalArgumentException("Please provide upper right location");
+        }
+
+        if (upperRightLocation.getX() > 50 || upperRightLocation.getY() > 50) {
+            throw new IllegalArgumentException("Co-Ordinates should not be greater than 50");
+        }
         this.upperRightLocation = upperRightLocation;
     }
 

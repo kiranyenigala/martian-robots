@@ -9,16 +9,23 @@ public class Robot {
 
     public Robot(Planet planet,
                  Location location,
-                 Orientation orientation,
-                 String instructions){
+                 Orientation orientation){
         this.planet = planet;
         this.orientation = orientation;
         this.location = location;
         planet.addRobot(this);
-        this.moveRobot(instructions);
     }
 
-    private void moveRobot(String instructions) {
+    public void moveRobot(String instructions) {
+        if (instructions == null
+                || instructions.trim().length() == 0) {
+            throw  new IllegalArgumentException("Please provide valid instructions");
+        }
+
+        if (instructions.trim().length() > 100) {
+            throw  new IllegalArgumentException("Instruction length should not be greater than 100");
+        }
+
         for (char c : instructions.toCharArray()) {
             if (isLost()) {
                 break;
